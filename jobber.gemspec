@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.date = "2013-01-01"
   s.description = "jobber is a library that aims to provide a simple way to define distributed jobs.\nworks on top of mongoid, beanstalk and state_machine.\nprovides all the functionality to define jobs & run job workers.\n"
   s.email = "dbldots@gmail.com"
+  s.executables = ["jobber-worker"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -20,10 +21,39 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
+    "README.md",
     "Rakefile",
     "VERSION",
+    "bin/jobber-worker",
+    "jobber.gemspec",
     "lib/jobber.rb",
+    "lib/jobber/config.rb",
+    "lib/jobber/job/base.rb",
+    "lib/jobber/job/child.rb",
+    "lib/jobber/job/master.rb",
+    "lib/jobber/job/remote.rb",
+    "lib/jobber/listener.rb",
+    "lib/jobber/message.rb",
+    "lib/jobber/participant.rb",
+    "lib/jobber/stalker.rb",
+    "lib/jobber/worker.rb",
+    "spec/config_spec.rb",
+    "spec/factories/factories.rb",
+    "spec/job_master_spec.rb",
+    "spec/message_spec.rb",
+    "spec/mocks/stalker_mock.rb",
+    "spec/sample/jobber.rb",
+    "spec/sample/jobs/make_coffee.rb",
+    "spec/sample/listener.rb",
+    "spec/sample/listeners/wait_for_coffee.rb",
+    "spec/sample/participant.rb",
+    "spec/sample/participants/buy_machine.rb",
+    "spec/sample_job_spec.rb",
+    "spec/sample_jobber_spec.rb",
+    "spec/sample_listener_spec.rb",
+    "spec/sample_participant_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/dbldots/jobber"

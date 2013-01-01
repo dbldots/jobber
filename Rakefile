@@ -16,6 +16,7 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "jobber"
   gem.homepage = "http://github.com/dbldots/jobber"
+  gem.executables = ["jobber-worker"]
   gem.license = "WTFPL"
   gem.summary = %Q{library for distributed jobs}
   gem.description = <<DESCRIPTION
