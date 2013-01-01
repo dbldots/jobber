@@ -42,6 +42,7 @@ as mongoid requires ruby 1.9.3 (or newer), jobber won't work with previous ruby 
 
 have a look at the specs and the sample job implementation you can find in `spec/sample`.
 
+### submit a job
 assuming you have a jobber worker instance running with a job implementation registered with the name `make_coffee` you can submit a job using
 
 	require 'jobber'
@@ -53,8 +54,23 @@ assuming you have a jobber worker instance running with a job implementation reg
 	message.sender    = 'human'
 	message.recipient = 'jobber'
 	message.send!
+	
+	# you could also do it all in once like this:
+	Jobber::Message::Request.new(
+		job: { uuid: UUID.new.generate(:compact) },
+		sender: 'human',
+		recipient: 'jobber'
+	).send!
 			
 once the job is done, a `Jobber::Message::Response` will be sent to a listener worker that handles messages for `human`.
+
+### start a worker
+
+	jobber-worker start spec/sample/jobber.rb
+	
+### stop a worker
+
+	jobber-worker stop spec/sample/jobber.rb
 
 ## todo
 
