@@ -16,9 +16,13 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "jobber"
   gem.homepage = "http://github.com/dbldots/jobber"
-  gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.license = "WTFPL"
+  gem.summary = %Q{library for distributed jobs}
+  gem.description = <<DESCRIPTION
+jobber is a library that aims to provide a simple way to define distributed jobs.
+works on top of mongoid, beanstalk and state_machine.
+provides all the functionality to define jobs & run job workers.
+DESCRIPTION
   gem.email = "dbldots@gmail.com"
   gem.authors = ["dbldots"]
   # dependencies defined in Gemfile

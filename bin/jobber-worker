@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require "daemons"
+require File.expand_path(File.dirname(__FILE__) + "/../lib/jobber")
+
+config = ARGV.last
+raise "please provide config file" unless File.exist?(config)
+config = File.expand_path(config)
+
+Daemons.run_proc(File.basename(config),
+  :ARGV => ARGV,
+  :log_output => true) do
+    Jobber::Worker.new(config)
+end
+
