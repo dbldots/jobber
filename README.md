@@ -49,9 +49,10 @@ assuming you have a jobber worker instance running with a job implementation reg
 	
 	message = Jobber::Message::Request.new(:subject => 'make_coffee')
 	# generate a uuid to be able to identify the job response later on
-	message.job_uuid = UUID.new.generate(:compact)
-	message.sender = 'human'
-	Jobber::Stalker.instance_for(:jobber).put(message)
+	message.job_uuid  = UUID.new.generate(:compact)
+	message.sender    = 'human'
+	message.recipient = 'jobber'
+	message.send!
 			
 once the job is done, a `Jobber::Message::Response` will be sent to a listener worker that handles messages for `human`.
 
